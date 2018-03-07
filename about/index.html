@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>oop面向对象复习 | Vicson&#39;s blog</title>
+  <title>about | Vicson&#39;s blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -186,54 +186,110 @@
 
   <!-- ============================ Header & Logo bar =========================== -->
 
-      
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2018-03-07T15:26:14.000Z" itemprop="datePublished">
-          2018-03-07
-      </time>
-    
-    
-    | 
-    <a href='/tags/JavaScript/'>JavaScript</a>
-    
-    
-</span>
-                <h1>oop面向对象复习</h1>
-            </div>
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+  <div class="container-fluid element-img" style="background: url(/img/bj_img.jpg) no-repeat center center fixed;background-size: cover">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+          <div>
+            
+              <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
+              <p>
+                
+              </p>
+              
+              <h2></h2>
+              <p>
+                每个人都是生活的演员
+              </p>
+              
+
+          </div>
         </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<h2 id="面向对象复习"><a href="#面向对象复习" class="headerlink" title="面向对象复习"></a>面向对象复习</h2><p><strong>基本类型是值的复制</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = 5</div><div class="line">var b = a</div><div class="line">b += 5</div><div class="line">alert(a)		// 5</div><div class="line">alert(b)		// 8</div></pre></td></tr></table></figure>
-<p><strong>对象类型不仅是值的复制, 而且也是引用的传递</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a = [1,2,3]			// 1,2,3</div><div class="line">var b = a				// 1,2,3</div><div class="line">b.push(4)</div><div class="line">alert(a)				// 1,2,3,4</div><div class="line">alert(b)				// 1,2,3,4</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [1,2,3]</div><div class="line">var b = a</div><div class="line">b = [1,2,3,4]</div><div class="line">alert(a)				// 1,2,3</div><div class="line">alert(b)				// 1,2,3,4</div><div class="line"></div><div class="line">// 只要在程序中进行了赋值操作, 就会在内存中生成新的地址</div></pre></td></tr></table></figure>
-<p><strong>比较也同上</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var a = 5</div><div class="line">var b = 5</div><div class="line">alert(a == b) 			// true</div><div class="line"></div><div class="line">var a = [1,2,3]</div><div class="line">var b = [1,2,3]</div><div class="line">alert(a == b) 			// false</div><div class="line"></div><div class="line">var a = [1,2,3]</div><div class="line">var b = a</div><div class="line">alert(a == b)			// true</div></pre></td></tr></table></figure>
-<p><strong>原型: 如果一个对象下有一个方法, 如果每次 new 对象之后, 就会在内存中生成多份, 这样就会极大占用内存, 原型就是为了让对象下的方法或者属性在内存中只存在一份. 相当于 <code>css</code> 中的 <code>class</code></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4]</div><div class="line">arr.sum = function () &#123;</div><div class="line">  var result = 0</div><div class="line">  for(var i=0; i&lt;this.length; i++) &#123;</div><div class="line">    result += this[i]</div><div class="line">  &#125;</div><div class="line">  return result</div><div class="line">&#125;</div><div class="line">arr.sum()         // 10</div><div class="line"></div><div class="line">var arr2 = [1,1,1,1]</div><div class="line">arr2.sum()</div></pre></td></tr></table></figure>
-<p>如上方法, 只能在<code>arr</code>对象下调用自身的<code>sum</code>方法, 如果重新声明一个数组, 想调用 <code>sum</code>方法就不行, 那么原型就是为了解决这个问题.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">  this.name = name</div><div class="line">  this.prototype.showName = function() &#123;</div><div class="line">    alert(this.name)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">var p1 = new Person(&apos;xx&apos;)</div><div class="line">var p2 = new Person(&apos;xx2&apos;)</div><div class="line">alert(p1.showName == p2.showName)     // 此时在内存中的引用相同, 值相同</div></pre></td></tr></table></figure></p>
-
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="pagination" role="pagination">
-    
-    
-    <a class="pull-right" href="/2018/03/02/记一面试以及学习巩固/">
-        记一面试以及学习巩固 →
-    </a>
-    
-</nav>
-
-        <div class="duoshuo">
-
-
-</div>
+      </div>
+      <!-- // .col-md-12 -->
     </div>
+    <div class="herofade beige-dk"></div>
+  </div>
+</section>
+
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
+
+<!-- ============================ END Hero Image =========================== -->
+<section id="intro">
+  <div class="container">
+    <div class="row col-md-offset-2">
+      <div class="col-md-8">
+        <h1>about</h1>
+      </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <p>我是吴阿铸.我就是我</p>
+
+        <div class="clearfix"></div>
+    </div>
+
+  </div>
+</section>
+<section id="process">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+        <div class="timeline-centered">
+          <div class="line"></div>
+          <div class="present">Past</div>
+          <div class="dot_tp"></div>
+          <div class="born">Now</div>
+          <div class="dot_bt"></div>
+          
+            <div class="timeline-entry">
+              <div class="timeline-entry-inner">
+                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                  <span class="number">1</span>
+                </div>
+                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                  <p>
+                    2014/06-start my FE lifecycle
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-entry">
+              <div class="timeline-entry-inner">
+                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                  <span class="number">2</span>
+                </div>
+                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                  <p>
+                    Today - Build my blog and keep it on
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-entry">
+              <div class="timeline-entry-inner">
+                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                  <span class="number">3</span>
+                </div>
+                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                  <p>
+                    More...
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+        </div>
+        <!-- timeline-centered -->
+      </div>
+    </div>
+  </div>
 </section>
 
 
