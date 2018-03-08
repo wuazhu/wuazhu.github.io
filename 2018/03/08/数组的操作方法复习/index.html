@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2018/3 | Vicson&#39;s blog</title>
+  <title>数组的操作方法复习 | Vicson&#39;s blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -186,87 +186,54 @@
 
   <!-- ============================ Header & Logo bar =========================== -->
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bj_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每个人都是生活的演员</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/03/08/数组的操作方法复习/">数组的操作方法复习</a></h4>
-                            
-                            <p><time datetime="2018-03-08T07:21:22.000Z"><a href="/2018/03/08/数组的操作方法复习/">2018-03-08</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/03/07/oop面向对象复习/">oop面向对象复习</a></h4>
-                            
-                            <p><time datetime="2018-03-07T15:26:14.000Z"><a href="/2018/03/07/oop面向对象复习/">2018-03-07</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/03/02/记一面试以及学习巩固/">记一面试以及学习巩固</a></h4>
-                            
-                            <p><time datetime="2018-03-02T02:29:37.000Z"><a href="/2018/03/02/记一面试以及学习巩固/">2018-03-02</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-03-08T07:21:22.000Z" itemprop="datePublished">
+          2018-03-08
+      </time>
+    
+</span>
+                <h1>数组的操作方法复习</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h3 id="1-every-和-some"><a href="#1-every-和-some" class="headerlink" title="1.  every() 和 some() "></a>1. <strong> <code>every()</code> 和 <code>some()</code> </strong></h3><p>every()是对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true。</p>
+<p>some()是对数组中的每一项运行给定函数，如果该函数对任一项返回true，则返回true。</p>
+<p>every()和some()很相似，他们都用于查询数组中的项是否满足某个条件，对every()来说，传入的函数必须对每一项都返回true，这个方法才返回true；否则，则返回false。而some()方法则只要传入的函数对数组中的某一项返回true，就会返回true。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var numbers=[1,2,3,4,5,4,3,2,1];</div><div class="line"></div><div class="line">  var everyResult=numbers.every(function(item,index,array)&#123;</div><div class="line"></div><div class="line">return (item&gt;2);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line">alert(everyResult);//false</div><div class="line"></div><div class="line">var someResult=numbers.some(function(item,index,array)&#123;</div><div class="line"></div><div class="line">return (item&gt;2);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line">alert(someResult);//true</div></pre></td></tr></table></figure>
+<p>以上代码调用了every()和some(),传入的函数只要给定项大于2就会返回true。对于every()，它返回的是false，因为只有部分数组符合条件 ; 而对于some()，结果就是true，因为至少有一项是大于2的。</p>
+<h3 id="2-filter"><a href="#2-filter" class="headerlink" title="2.  filter() "></a>2. <strong> <code>filter()</code> </strong></h3><p>filter()是对数组中的每一项运行给定函数，返回该函数会返回true的项所组成的数组。它利用指定的函数确定是否在返回的数组中包含某一项。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var numbers=[1,2,3,4,5,4,3,2,1];</div><div class="line"></div><div class="line">var filterResult=numbers.filter(function(item,index,array)&#123;</div><div class="line"></div><div class="line">return (item&gt;2);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line">alter(filterResult); //[3,4,5,4,3];</div></pre></td></tr></table></figure>
+<p>此例子中，传入的函数要返回一个所有数值都大于2的数组，通过调用filter()方法创建并返回了包含3/4/5/4/3的数组，因为传入的函数对它们的每一项都返回true。这个方法对查询符合某些条件的所有数组项非常有用。</p>
+<h3 id="3-map"><a href="#3-map" class="headerlink" title="3.  map() "></a>3. <strong> <code>map()</code> </strong></h3><p>map()是对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。这个数组的每一项都是在原始数据中的对应项上运行传入函数的结果，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var numbers=[1,2,3,4,5,4,3,2,1];</div><div class="line"></div><div class="line">  var mapResult=numbers.map(function(item,index,array)&#123;</div><div class="line"></div><div class="line">return item*2;</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line">alert(mapResult); //[2,4,6,8,10,8,6,4,2]</div></pre></td></tr></table></figure></p>
+<p>以上代码返回的数组中包含每个数乘以2之后的结果，这个方法适合创建包含的项与另一个数组一一对应的数组。</p>
+<h3 id="4-forEach"><a href="#4-forEach" class="headerlink" title="4.  forEach() "></a>4. <strong> <code>forEach()</code> </strong></h3><p>forEach() 是多数组中的每一项运行给定函数，这个方法没有返回值。它只是对数组中的每一项运行传入的函数，没有返回值。本质上与使用for循环迭代数组一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var numbers=[1,2,3,4,5,4,3,2,1];</div><div class="line"></div><div class="line">numbers.forEach(function(iterm,index,array)&#123;</div><div class="line"></div><div class="line">//执行某些操作</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>生活就像一面镜子，透过镜面, 看到了自己, 也看到了自己</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/03/07/oop面向对象复习/">
+        oop面向对象复习 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
